@@ -1,0 +1,62 @@
+.body {
+    font-family: 'Alegreya Sans', sans-serif;
+}
+
+.mt-6 {
+    margin-top: 100px;
+}
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+#logo-name {
+    color: #0052ff;
+}
+
+#home-top img {
+    width: 40%;
+    height: auto;
+}
+
+#home-top {
+    align-items: center;
+    justify-content: space-around;
+}
+
+#home-top-left {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.nav-link {
+    color: #050f19;
+}
+
+#nav-inscription {
+    background-color: #0052ff;
+    border-radius: 6px;
+}
+
+#nav-inscription a {
+    color: white;
+}
+
+li.nav-item {
+    margin: 0px 15px;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+
+
