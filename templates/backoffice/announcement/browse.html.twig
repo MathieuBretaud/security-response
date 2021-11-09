@@ -48,7 +48,7 @@
 								<th scope="row">{{ announcement.id }}</th>
 								<td>{{ announcement.title }}</td>
 								<td>{{ announcement.slug }}</td>
-								<td>{{ announcement.description }}</td>
+								<td>{{ announcement.description |raw }}</td>
 								<td>{{ announcement.status }}</td>
 							    {# <td>{{ announcement.certification }}</td>  #}
 								{# <td>{{ announcement.member }}</td> #}
