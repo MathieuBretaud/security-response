@@ -2,6 +2,11 @@ const eye = document.querySelector(".feather-eye");
 const eyeoff = document.querySelector(".feather-eye-off");
 const passwordField = document.querySelector("input[type=password]");
 
+
+eye.forEach(function (currentValue) {
+  console.log(eye[currentValue]);
+})
+
 eye.addEventListener("click", () => {
   eye.style.display = "none";
   eyeoff.style.display = "block";
