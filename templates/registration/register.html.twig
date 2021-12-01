@@ -38,18 +38,32 @@
 								<p class="bg-warning p-2 text-dark bg-opacity-70">Inscrivez-vous en tant qu'entreprise</p>
 							</div>
 						</div>
-					
-					{# 	{{ form_row(registrationForm.userMember) }}
+					#}
 
-						{{ form_row(registrationForm.userEnterprise) }} #}
-                        <button class="btn btn-lg btn-primary" type="submit">
-                            S'inscrire
-                        </button>   
-						{{ form_end(registrationForm) }}
+					{{app.request.get('role')}}
+					{% if app.request.get('role')=='member' %}
+						{{ form_row(registrationForm.userMember) }}
+
+					{% endif %}
+					{% if app.request.get('role')=='enterprise' %}
+						{{ form_row(registrationForm.userEnterprise) }} 
+
+
+					{% endif %}
+						
+					 	
+						
+
+
+
+					<button class="btn btn-lg btn-primary" type="submit">
+						S'inscrire
+					</button>   
+					{{ form_end(registrationForm) }}
 						
 	</main>
 
 {% endblock %}
 {% block javascripts %}
-	{{ encore_entry_script_tags('registration') }}
+	 {{ encore_entry_script_tags('registration') }}
 {% endblock %}

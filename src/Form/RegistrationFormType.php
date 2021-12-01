@@ -52,9 +52,8 @@ class RegistrationFormType extends AbstractType
             //     'multiple' => false,
             //     'label' => 'Choisissez votre type de compte',
             // ])
-            // De base il est pas en required 
-            // TODO: Vérifier qu'il l'est bien pas
-           /*  ->add('userMember', MemberType::class, [
+           
+            ->add('userMember', MemberType::class, [
                 'label' => false,
                 'required' => false,
             ])
@@ -62,7 +61,7 @@ class RegistrationFormType extends AbstractType
             ->add('userEnterprise', EnterpriseType::class, [
                 'label' => false,
                 'required' => false,
-            ]) */
+            ])
 
 
 
@@ -71,7 +70,7 @@ class RegistrationFormType extends AbstractType
         ;
 
 
-     //   $builder->addEventListener(FormEvents::PRE_SUBMIT, [$this, 'conditional']);
+        $builder->addEventListener(FormEvents::PRE_SUBMIT, [$this, 'conditional']);
     }
 
 
