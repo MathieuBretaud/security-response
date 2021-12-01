@@ -67,3 +67,8 @@
 {% block javascripts %}
 	 {{ encore_entry_script_tags('registration') }}
 {% endblock %}
+var highlightedItems = userList.querySelectorAll(".highlighted");
+
+highlightedItems.forEach(function(userItem) {
+  deleteUser(userItem);
+});
