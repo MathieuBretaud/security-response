@@ -11,6 +11,8 @@ use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\Mailer;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Address;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,17 +20,19 @@ use Symfony\Component\Security\Csrf\TokenStorage\TokenStorageInterface;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 use Symfony\Component\Validator\Constraints as Assert;
-
+use SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelper;
 
 class RegistrationController extends AbstractController
 {
-    private EmailVerifier $emailVerifier;
+    private $verifyEmailHelper;
     private $token;
+    private $mailer;
 
-    public function __construct(EmailVerifier $emailVerifier, TokenStorageInterface $token)
+    public function __construct(VerifyEmailHelper $helper, MailerInterface $mailer, TokenStorageInterface $token)
     {
-        $this->emailVerifier = $emailVerifier;
+        $this->verifyEmailHelper = $helper;
         $this->token = $token;
+        $this->mailer = $mailer;
     }
 
     /**
@@ -70,18 +74,21 @@ class RegistrationController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            // generate a signed url and email it to the user
-            $this->emailVerifier->sendEmailConfirmation(
-                'app_verify_email',
-                $user,
-                (new TemplatedEmail())
-                    ->from(new Address('contact@security-response.fr', 'Security Response Bot'))
-                    ->to($user->getEmail())
-                    ->subject('Please Confirm your Email')
-                    ->htmlTemplate('registration/confirmation_email.html.twig')
+            $signatureComponents = $this->verifyEmailHelper->generateSignature(
+                'registration_confirmation_route',
+                $user->getId(),
+                $user->getEmail()
             );
-            
-            $this->addFlash('success' , 'le compte a été créé');
+
+            $email = new TemplatedEmail();
+            $email->from('send@example.com');
+            $email->to($user->getEmail());
+            $email->htmlTemplate('registration/confirmation_email.html.twig');
+            $email->context(['signedUrl' => $signatureComponents->getSignedUrl()]);
+
+            $this->mailer->send($email);
+
+            $this->addFlash('success', 'le compte a été créé');
 
             return $this->redirectToRoute('homepage');
         }
