@@ -26,22 +26,22 @@ use Symfony\Component\String\Slugger\SluggerInterface;
  * Les annotations de routes au niveau de la classe servent de préfixe à toutes les routes définies dans celle ci
  * 
  * @Route("/profil/membre", name="member_")
-*/
+ */
 class MemberController extends AbstractController
 {
-    
+
     /**
      * @Route("/liste", name="browse")
      */
     public function browse(MemberRepository $memberRepository): Response
     {
         $memberList = $memberRepository->findAll();
-        
+
         return $this->render('member/browse.html.twig', [
             'member_list' => $memberList
-        ]);       
+        ]);
     }
-    
+
     /**
      * @Route("/edit/connexion", name="edit_connexion", methods={"GET", "POST"})
      */
@@ -58,19 +58,19 @@ class MemberController extends AbstractController
         $memberForm->handleRequest($request);
 
         if ($memberForm->isSubmitted() && $memberForm->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();            
-            
+            $entityManager = $this->getDoctrine()->getManager();
+
             $entityManager->flush();
 
             $this->addFlash('success', "Les infos de connexions ont été modifiées");
 
             return $this->redirectToRoute('member_edit_connexion');
         }
-        
-        if($request->isMethod('POST')) {
+
+        if ($request->isMethod('POST')) {
 
             // Verification if the two submit password are equal
-            if($request->request->get('pass') == $request->request->get('pass2')) {
+            if ($request->request->get('pass') == $request->request->get('pass2')) {
 
                 $hashedPassword = $passwordHasher->hash($userMember, $request->request->get('pass'));
                 $userMember->setPassword($hashedPassword);
@@ -79,11 +79,9 @@ class MemberController extends AbstractController
                 $this->addFlash('message', "Le mot de passe à été modifié.");
 
                 return $this->redirectToRoute('member_edit_connexion');
-
             } else {
                 $this->addFlash('error', "Les deux mots de passes ne sont pas identiques.");
             }
-            
         }
 
         return $this->render('profile/member/editConnexion.html.twig', [
@@ -109,7 +107,7 @@ class MemberController extends AbstractController
 
         if ($memberForm->isSubmitted() && $memberForm->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            
+
             $entityManager->flush();
 
             $this->addFlash('success', "Les infos personnelles ont été modifiées");
@@ -117,9 +115,9 @@ class MemberController extends AbstractController
             return $this->redirectToRoute('member_edit_perso');
         }
 
-        
 
-        return $this->render('profile/member/editPerso.html.twig', [            
+
+        return $this->render('profile/member/editPerso.html.twig', [
             'member_form' => $memberForm->createView(),
             'member' => $security,
         ]);
@@ -157,12 +155,12 @@ class MemberController extends AbstractController
             return $this->redirectToRoute('profile_member');
         }
 
-        return $this->render('profile/member/editSpecializations.html.twig', [            
+        return $this->render('profile/member/editSpecializations.html.twig', [
             'specialization_form' => $specializationForm->createView(),
         ]);
     }
 
-     /**
+    /**
      * 
      * @Route("/add", name="add", methods={"GET", "POST"})
      */
@@ -174,24 +172,22 @@ class MemberController extends AbstractController
 
         $memberForm->handleRequest($request);
 
-            if ($memberForm->isSubmitted() && $memberForm->isValid()) {
+        if ($memberForm->isSubmitted() && $memberForm->isValid()) {
 
-                
-                $member = $memberForm->getData();
-                
-                // On associe le user connecté à la question
-                $member->setUser($this->getUser());
-                
-                $member->setSlug(strtolower($slugger->slug($member->getFirstname() . '-' . $member->getLastname())));
-                $entityManager = $this->getDoctrine()->getManager();
-                $entityManager->persist($member);
-                $entityManager->flush();
-    
-                $this->addFlash('success', "Le membre {$member->getFirstname()} {$member->getLastname()} à été ajouté");
-    
-                return $this->redirectToRoute('member_browse', ['id' => $member->getId()]);
 
-           
+            $member = $memberForm->getData();
+
+            // On associe le user connecté à la question
+            $member->setUser($this->getUser());
+
+            $member->setSlug(strtolower($slugger->slug($member->getFirstname() . '-' . $member->getLastname())));
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($member);
+            $entityManager->flush();
+
+            $this->addFlash('success', "Le membre {$member->getFirstname()} {$member->getLastname()} à été ajouté");
+
+            return $this->redirectToRoute('member_browse', ['id' => $member->getId()]);
         }
 
         // on fournit ce formulaire à notre vue
@@ -213,7 +209,7 @@ class MemberController extends AbstractController
         $member = $userMember->getUserMember();
 
         $this->addFlash('success', "Le membre {$member->getFirstname()} {$member->getLastname()} à été supprimé");
-         
+
         // logout of current user
         $tokenStorage->setToken();
 
@@ -222,7 +218,7 @@ class MemberController extends AbstractController
 
         return $this->redirectToRoute('homepage');
     }
-     /**
+    /**
      *
      * @Route("/{id}/read", name="read")
      */
@@ -232,8 +228,6 @@ class MemberController extends AbstractController
 
         return $this->render('member/read.html.twig', [
             'member_read' => $member,
-        ]);        
+        ]);
     }
-
-
 }

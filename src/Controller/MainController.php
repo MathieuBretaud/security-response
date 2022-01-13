@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Contact;
 use App\Form\ContactType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -86,7 +85,7 @@ class MainController extends AbstractController
                 $context
             );
             
-            $this->addFlash('success', 'Vore message a bien été envoyé');
+            $this->addFlash('success', 'Votre message a bien été envoyé');
             return $this->redirectToRoute('contact');
          
         }
