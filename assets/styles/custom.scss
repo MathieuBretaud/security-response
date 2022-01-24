@@ -635,6 +635,8 @@ h4 {
 }
 
 
+
+
 /* Mobile S CSS*/
 @media (max-width: 320px) {
 
@@ -644,7 +646,7 @@ h4 {
 
     .info-block .register-form a {
         margin-top: 5rem;
-    } 
+    }
 
 
     .logo-img {
@@ -662,9 +664,9 @@ h4 {
     .research {
         flex-direction: column;
         margin-top: 2rem;
-        
 
-        input{
+
+        input {
             margin-bottom: 2rem;
         }
     }
@@ -698,6 +700,10 @@ h4 {
 
     .block-blue-end {
         flex-direction: column;
+    }
+
+    ul {
+        flex-wrap: wrap;
     }
 
 }
@@ -710,7 +716,7 @@ h4 {
 
     .info-block .register-form a {
         margin-top: 5rem;
-    } 
+    }
 
 
     .logo-img {
@@ -728,9 +734,9 @@ h4 {
     .research {
         flex-direction: column;
         margin-top: 2rem;
-        
 
-        input{
+
+        input {
             margin-bottom: 2rem;
         }
     }
@@ -761,6 +767,7 @@ h4 {
     .intro-footer {
         flex-direction: column;
     }
+
     .block-blue-end {
         flex-direction: column;
     }
@@ -768,16 +775,17 @@ h4 {
     footer {
         position: relative;
     }
+
     //MEMBRE
     .profile_member {
         flex-direction: column;
         text-align: center;
-        
-        
+
+
         .profile_member_header {
             width: 100%;
             padding-left: 3rem;
-            
+
         }
 
         .profile_member_footer {
@@ -788,10 +796,12 @@ h4 {
     .profile_member_specialisation {
         flex-direction: column;
         text-align: center;
+
         .profile_member_specialisation_header {
             width: 100%;
             padding-left: 3rem;
         }
+
         .profile_member_specialisation_footer {
             width: 100%;
         }
@@ -799,21 +809,24 @@ h4 {
 
     .profile_member_editperso {
         flex-direction: column;
+
         .profile_member_editperso_header {
             width: 100%;
             padding-left: 3rem;
         }
+
         .profile_member_editperso_footer {
             width: 100%;
             padding-left: 3rem;
             padding-right: 3rem;
         }
-        
+
     }
 
     .profile_member_edit_connexion {
         flex-direction: column;
         text-align: center;
+
         .profile_member_edit_connexion_header {
             width: 100%;
             padding-left: 3rem;
@@ -825,31 +838,35 @@ h4 {
             padding-right: 3rem;
         }
     }
+
     //ENTERPRISE
     .profile_enterprise {
         flex-direction: column;
         text-align: center;
-        
-        
+
+
         .profile_enterprise_header {
             width: 100%;
             padding-left: 3rem;
             
+
         }
 
         .profile_enterprise_footer {
             width: 100%;
+            
         }
     }
 
     .profile_enterprise_certification {
         flex-direction: column;
         text-align: center;
-        
+
         .profile_enterprise_certification_header {
             width: 100%;
             padding-left: 3rem;
         }
+
         .profile_enterprise_certification_footer {
             width: 100%;
             padding-left: 3rem;
@@ -859,21 +876,24 @@ h4 {
 
     .profile_enterprise_editperso {
         flex-direction: column;
+
         .profile_enterprise_editperso_header {
             width: 100%;
             padding-left: 3rem;
         }
+
         .profile_enterprise_editperso_footer {
             width: 100%;
             padding-left: 3rem;
             padding-right: 3rem;
         }
-        
+
     }
 
     .profile_enterprise_edit_connexion {
         flex-direction: column;
         text-align: center;
+
         .profile_enterprise_edit_connexion_header {
             width: 100%;
             padding-left: 3rem;
@@ -891,12 +911,12 @@ h4 {
     .profile_company {
         flex-direction: column;
         text-align: center;
-        
-        
+
+
         .profile_company_header {
             width: 100%;
             padding-left: 3rem;
-            
+
         }
 
         .profile_company_footer {
@@ -906,20 +926,24 @@ h4 {
 
     .profile_company_editperso {
         flex-direction: column;
+
         .profile_company_editperso_header {
             width: 100%;
             padding-left: 3rem;
         }
+
         .profile_company_editperso_footer {
             width: 100%;
             padding-left: 3rem;
             padding-right: 3rem;
         }
-        
+
     }
+
     .profile_company_edit_connexion {
         flex-direction: column;
         text-align: center;
+
         .profile_company_edit_connexion_header {
             width: 100%;
             padding-left: 3rem;
@@ -930,6 +954,11 @@ h4 {
             padding-left: 3rem;
             padding-right: 3rem;
         }
+    }
+
+    ul {
+        flex-wrap: wrap;
+        text-align: center;
     }
 
 }
@@ -947,7 +976,7 @@ h4 {
 
     .info-block .register-form a {
         margin-top: 5rem;
-    } 
+    }
 
 
     .logo-img {
@@ -965,9 +994,9 @@ h4 {
     .research {
         flex-direction: column;
         margin-top: 2rem;
-        
 
-        input{
+
+        input {
             margin-bottom: 2rem;
         }
     }
@@ -998,19 +1027,21 @@ h4 {
     .intro-footer {
         flex-direction: column;
     }
+
     .block-blue-end {
         flex-direction: column;
     }
+
     //MEMBER
     .profile_member {
         flex-direction: column;
         text-align: center;
-        
-        
+
+
         .profile_member_header {
             width: 100%;
             padding-left: 3rem;
-            
+
         }
 
         .profile_member_footer {
@@ -1021,10 +1052,12 @@ h4 {
     .profile_member_specialisation {
         flex-direction: column;
         text-align: center;
+
         .profile_member_specialisation-header {
             width: 100%;
             padding-left: 3rem;
         }
+
         .profile_member_specialisation_footer {
             width: 100%;
         }
@@ -1032,20 +1065,24 @@ h4 {
 
     .profile_member_editperso {
         flex-direction: column;
+
         .profile_member_editperso_header {
             width: 100%;
             padding-left: 3rem;
         }
+
         .profile_member_editperso_footer {
             width: 100%;
             padding-left: 3rem;
             padding-right: 3rem;
         }
-        
+
     }
+
     .profile_member_edit_connexion {
         flex-direction: column;
         text-align: center;
+
         .profile_member_edit_connexion_header {
             width: 100%;
             padding-left: 3rem;
@@ -1063,12 +1100,12 @@ h4 {
     .profile_enterprise {
         flex-direction: column;
         text-align: center;
-        
-        
+
+
         .profile_enterprise_header {
             width: 100%;
             padding-left: 3rem;
-            
+
         }
 
         .profile_enterprise_footer {
@@ -1076,34 +1113,42 @@ h4 {
         }
     }
 
-    .profile_enterprise_specialisation {
+    .profile_enterprise_certification {
         flex-direction: column;
         text-align: center;
-        .profile_enterprise_specialisation-header {
+
+        .profile_enterprise_certification_header {
             width: 100%;
             padding-left: 3rem;
         }
-        .profile_enterprise_specialisation_footer {
+
+        .profile_enterprise_certification_footer {
             width: 100%;
+            padding-left: 3rem;
+            padding-right: 3rem;
         }
     }
 
     .profile_enterprise_editperso {
         flex-direction: column;
+
         .profile_enterprise_editperso_header {
             width: 100%;
             padding-left: 3rem;
         }
+
         .profile_enterprise_editperso_footer {
             width: 100%;
             padding-left: 3rem;
             padding-right: 3rem;
         }
-        
+
     }
+
     .profile_enterprise_edit_connexion {
         flex-direction: column;
         text-align: center;
+
         .profile_enterprise_edit_connexion_header {
             width: 100%;
             padding-left: 3rem;
@@ -1120,12 +1165,12 @@ h4 {
     .profile_company {
         flex-direction: column;
         text-align: center;
-        
-        
+
+
         .profile_company_header {
             width: 100%;
             padding-left: 3rem;
-            
+
         }
 
         .profile_company_footer {
@@ -1136,10 +1181,12 @@ h4 {
     .profile_company_specialisation {
         flex-direction: column;
         text-align: center;
+
         .profile_company_specialisation-header {
             width: 100%;
             padding-left: 3rem;
         }
+
         .profile_company_specialisation_footer {
             width: 100%;
         }
@@ -1147,20 +1194,24 @@ h4 {
 
     .profile_company_editperso {
         flex-direction: column;
+
         .profile_company_editperso_header {
             width: 100%;
             padding-left: 3rem;
         }
+
         .profile_company_editperso_footer {
             width: 100%;
             padding-left: 3rem;
             padding-right: 3rem;
         }
-        
+
     }
+
     .profile_company_edit_connexion {
         flex-direction: column;
         text-align: center;
+
         .profile_company_edit_connexion_header {
             width: 100%;
             padding-left: 3rem;
