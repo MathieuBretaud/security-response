@@ -107,7 +107,7 @@
 							{% endif %}
 							<li class="nav-item">
 								{% if is_granted('ROLE_ADMIN') %}
-									<a class="nav-link {{ app.request.get('_route') == 'backoffice_browse' ? 'active' }}" href="{{ path('backoffice_browse') }}">Administation</a>
+									{# <a class="nav-link {{ app.request.get('_route') == 'admin' ? 'active' }}" href="{{ path('admin') }}">Administation</a> #}
 								{% endif %}
 							</li>
 						</ul>
